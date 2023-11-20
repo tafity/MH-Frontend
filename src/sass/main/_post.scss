@@ -1,0 +1,78 @@
+.post {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 1.09rem;
+    margin-left: 1.25rem;
+}
+.post__wrapper {
+    display: flex;
+    align-items: center;
+    
+}
+.userName {
+    margin-left: 0.65rem;
+    margin-right: auto;
+    margin-top: -0.9rem;
+    font-family: Roboto;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.post__dot {
+    width: 5px;
+    height: 5px;
+    margin-top: 5px;
+    background-color: black;
+    border-radius: 5rem;
+    margin-right: 1.25rem;
+}
+.post__dropList {
+    font-family: Roboto;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 500;
+    color: #1D192B;
+}
+.post__dropList {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding-left: 4rem;
+    justify-content: center;
+    text-align: left;
+    width: 18.75rem;
+    height: 16.25rem;
+    border-radius: 2.5rem;
+    background-color: #F1F1F1;
+    margin-left: -20rem;
+    z-index: 1;
+    margin-top: 1rem;
+}
+.post__dropList::before{
+    content: '';
+    position: absolute;
+}
+.post__dropList > li {
+    padding-top: 1.56rem;
+}
+.post__dropList > :nth-child(1) {
+    margin-top: -1.5rem;
+}
+.date {
+    position: absolute;
+    margin-top: -0.8rem;
+    font-size: 13px;
+    margin-left: -17.4rem;
+    font-family: Roboto;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+}
+.title {
+    font-family: Roboto;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+}

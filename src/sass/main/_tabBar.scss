@@ -1,0 +1,30 @@
+.tabBar__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 2.37rem;
+    left: 2rem;
+}
+.tabBar__subcontainer {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2.5rem;
+    background: #262626;
+    width: 20rem;
+    height: 2.8rem;
+}
+.tabBar__search > img {
+    width: 50px;
+}
+.tabBar__addPost > img {
+    margin-right: 10px;
+}
+.tabBar__favs > img {
+    margin-right: 10px;
+}
+.tabBar__profile > img {
+    margin-right: 10px;
+}
