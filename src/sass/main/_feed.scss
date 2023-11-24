@@ -11,11 +11,15 @@
     border: 3px solid #C1ADFF;
     border-radius: 2.5rem;
     max-width: 20.93rem;
+    max-height: 2.6rem;
 }
 .subcontainer {
     height: 2.5rem;
     display: flex;
 
+}
+.fyp {
+    margin-top: 0.7rem;
 }
 .recs>span, .fyp > span {
     font-family: 'Roboto', sans-serif;
@@ -74,10 +78,7 @@
 .sort__dropList>li {
     font-size: 30px;
 }
-.sort__dropList>li:hover {
-    border-radius: 2.5rem;
-    background-color: #B6B6B6;
-}
+
 .sort{ 
     font-family: 'Roboto', sans-serif;
     font-weight: 400;

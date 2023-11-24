@@ -1,25 +1,35 @@
-import { useState } from "react"
-const MainPage = () => {
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import Post from './post';
 
-    const [isActive, setIsActive] = useState(0);
-    const toggleActive = (index) => {
-        setIsActive(index)
-    } 
+const Feed = () => {
+     //меняем класс "active" при нажатии
+  const [isActive, setIsActive] = useState(0);
+  const toggleActive = (index) => {
+      setIsActive(index)
+  } 
 
-    const [dropdown, setDropdown] =  useState(false);
+  //дропдаун
+  const [dropdown, setDropdown] =  useState(false);
 
+  //посты
+  const [posts, setPosts] = useState([
+    {
+      author: 'nickk',
+      published: '12/12/12',
+      headline: 'title',
+      raiting: '*****',
+      image: 'imgs',
+      description: 'description',
+      likes: '2',
+      comments:'2'
+      
+    }
+  ])
 
-    return (
-        <div>
-            <header>
-                <div className="header">
-                    <img src="/logo.svg" className="logo" alt="logo" />
-                    <button type="button" className="notifBtn" 
-                    >
-                    <img src="/notification.svg" className="notification" alt="notification's ring"/>
-                    </button>
-                </div>
-            </header>
+  return (
+    <div className="wrapper">
+                  
             <main>
                 <div className="feed">
                 <div className="container__feed">
@@ -28,10 +38,12 @@ const MainPage = () => {
                     onClick={() => toggleActive(0)}>
                     <span>Рекомендации</span> 
                     </button>
-                    <button type="button" className={isActive === 1 ? 'fyp active' : 'fyp'}
-                    onClick={() => toggleActive(1)}>
+                        <Link to = 'fyp'> 
+                        <button type="button" className={isActive === 1 ? 'fyp active' : 'fyp'}
+                        onClick={() => toggleActive(1)}>
                         <span>Моя Лента</span>
-                    </button>
+                        </button>
+                        </Link>
                     </div>
                 </div>
                 </div>
@@ -53,10 +65,19 @@ const MainPage = () => {
                     }
                     
                 </div>
-            </main>
+                {
+                  posts.map(post => (
+                     <Post
+                      key={post.id}
+                      author = {post.author}
 
-        </div>
-    )
+                      />
+                  )
+                  )
+                }
+            </main>
+    </div>
+  )
 }
 
-export default MainPage
+export default Feed

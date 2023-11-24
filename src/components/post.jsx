@@ -1,35 +1,61 @@
 import { Avatar } from "@mui/material"
 import { useState } from "react";
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Rating from '@mui/material/Rating';
+import Typography from '@mui/material/Typography';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
-const Post = () => {
+
+const Post = ({author, published, headline, raiting, image, description, likes, comments}) => {
     const current = new Date();
     const date = `${current.getDate()}.${current.getMonth()+1}.${current.getFullYear()}`
     
     const [postDropDown, setPostDropDown] = useState(false)
+
+    //рейтинг
+    const [value, setValue] = React.useState(0);
+
+
     
     return (
         <div className="post">
             <div className="post__wrapper">
             <Avatar className="post__avatar">Н</Avatar>
-            <span className="userName">Никнейм</span>
+            <span className="userName">{author}</span>
             <div className="post__dropDown">
                 <div className="post__dotContainer" onClick={()=> setPostDropDown((prev) => !prev)}>
                 <div className="post__dot"></div>
                 <div className="post__dot"></div>
                 <div className="post__dot"></div>
                 </div>
-            <span className="date">{date}</span>
+            <span className="date">{published}</span>
             </div>
             {
                         postDropDown && (
                             <div className="post__dropdownBody" >
                             <div className="post__dropdownDiv">
                             <ul className="post__dropList">
-                                <li><button type="button">Подписаться</button></li>
-                                <li><button type="button">Добавить в избранное</button></li>
-                                <li><button type="button">Скопировать ссылку</button></li>
-                                <li><button type="button">Пожаловаться на публикацию</button></li>
-                                <li><button type="button">Это неинтересно</button></li>
+                                <li>
+                                    <img src="/subscribeIcon.svg" alt="subscribe" />
+                                    <button type="button">Подписаться</button>
+                                </li>
+                                <li>
+                                     <img src="/bookmark.svg" alt="subscribe" />
+                                    <button type="button">Добавить в избранное</button>
+                                </li>
+                                <li>
+                                     <img src="/copyLink.svg" alt="subscribe" />
+                                    <button type="button">Скопировать ссылку</button>
+                                </li>
+                                <li>
+                                     <img src="/reportIcon.svg" alt="subscribe" />
+                                    <button type="button">Пожаловаться на публикацию</button>
+                                </li>
+                                <li>
+                                    <img src="/NotInteresting.svg" alt="subscribe" />   
+                                    <button type="button">Это неинтересно</button>
+                                </li>
                             </ul>
                             </div>
                             </div>
@@ -37,11 +63,38 @@ const Post = () => {
                     }
                      </div>
             <div className="post__body">
-                <h2 className="title"></h2>
-                <div className="rating"></div>
-                <div className="post__images"></div>
-                <p className="description"></p>
-                <div className="post__likesComments"></div>  
+                <h2 className="title">{headline}</h2>
+                <div className="rating">
+                <Box
+      sx={{
+        '& > legend': { mt: 2 },
+      }}
+    >
+      <Typography component="legend"></Typography>
+      <Rating
+        name="simple-controlled"
+        value={value}
+        onChange={(event, newValue) => {
+          setValue(newValue);
+        }}
+      />
+    </Box>
+                </div>
+                <div className="post__images">
+                    {[image]}
+                <div className="post__sliderDots">
+                </div>
+                </div>
+                <p className="description">{description}</p>
+                <div className="post__likesComments">
+                    <div className="post__likes"></div>
+                    <img src="/likeIcon.svg" alt="like" />
+                    <span className="post__likesNum">{likes}</span>
+                    <div className="post__comments">
+                    <img src="/commentIcon.svg" alt="" />
+                    <span className="post__commentsNum">{comments}</span>
+                    </div>
+                </div> 
             </div>
            
         </div>
